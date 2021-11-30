@@ -6,15 +6,18 @@ public class BlackJack {
     static Game blackJack = new Game();
     static Player[] player;
     static Scanner in;
-
-    public BlackJack() {
-    }
-
+    static GUI gui = new GUI();
     public static void main(String[] args) {
-//        GUI gui = new GUI();
         blackJack.generateCards();
         setPlayers();
-//        gui.runGUI(blackJack.getCards(), player[0].getCards(), player[1].getCards(), player[2].getCards(), player[3].getCards());
+        gui.runGUI(
+                blackJack.getCards().toArray(new Card[0]),
+                player[0].getCards().toArray(new Card[0]),
+                player[1].getCards().toArray(new Card[0]),
+                player[2].getCards().toArray(new Card[0]),
+                player[3].getCards().toArray(new Card[0])
+        );
+
         play();
         blackJack.gameStatus(player);
     }
@@ -74,7 +77,7 @@ public class BlackJack {
                     Card drawnCard = blackJack.drawRandomCard();
                     System.out.println("#Drawn card's value is: " + drawnCard.getValue());
                     player[i].addCard(drawnCard);
-//                gui.updatePlayerHand(drawnCard, i);
+                    gui.updatePlayerHand(drawnCard, i);
                     player[i].setScore(drawnCard.getValue());
 
                     if (player[i].isBusted()) {
@@ -130,7 +133,7 @@ public class BlackJack {
             Card drawnCard = blackJack.drawRandomCard();
             System.out.println("#Drawn card's value is: " + drawnCard.getValue());
             player[3].addCard(drawnCard);
-//            gui.updateDealerHand(drawnCard, (Card[])blackJack.getCards().toArray(new Card[0]));
+            gui.updateDealerHand(drawnCard, (Card[])blackJack.getCards().toArray(new Card[0]));
             player[3].setScore(drawnCard.getValue());
             if (player[3].isBusted()) {
                 System.out.println('~' + player[3].getName().toUpperCase() + " is Busted with '" + player[3].getScore() + "' in hand");
