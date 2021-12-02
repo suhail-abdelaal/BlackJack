@@ -69,9 +69,9 @@ public class Game {
 
     public void updateMaxScore() {
         for(int i = 0; i < 4; ++i) {
-            if (!this.player[i].isBusted() && this.player[i].getScore() >= maxScore) {
+            if (!this.player[i].isBusted() && this.player[i].getScore() >= maxScore)
                 maxScore = this.player[i].getScore();
-            }
+
         }
     }
 
