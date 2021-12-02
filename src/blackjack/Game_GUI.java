@@ -37,6 +37,7 @@ public class Game_GUI {
     frame.setLocationRelativeTo(null); //this centers the JFrame on the screen.
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setResizable(false); //we make it impossible for the computer user to resize the Frame.
+    frame.setAlwaysOnTop(true);
 
 
     //btnExit.setBounds(930, 240, 190, 50);

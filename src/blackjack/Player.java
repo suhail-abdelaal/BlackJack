@@ -1,36 +1,36 @@
 package blackjack;
 
-import java.util.ArrayList;
 
 public class Player {
+
+    // Attributes
     private String name;
     private int score;
-    private final ArrayList<Card> cards;
+    private Card[] playerCards= new Card[11];
+    private int index;
     private boolean hasWon;
     private boolean isBusted;
 
-    public Player(String name, int score) {
+    // Constructors
+    public Player(String name) {
         this.name = name;
-        this.score = score;
-        this.cards = new ArrayList();
+        this.index = 0;
         this.hasWon = false;
         this.isBusted = false;
+        for(int i=0;i<11;i++)
+        {
+            playerCards[i]=new Card(0,0,0);
+        }
     }
 
+    // Setters & Getters
     public int getScore() {
         return this.score;
     }
 
-    public void setScore(int score) {
-        this.score += score;
-        if (this.score == 21) {
-            this.hasWon = true;
-        }
 
-        if (this.score > 21) {
-            this.isBusted = true;
-        }
-
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean hasWon() {
@@ -50,14 +50,22 @@ public class Player {
     }
 
     public void addCard(Card card) {
-        this.cards.add(card);
+        this.playerCards[index++] = card;
+        this.score+=card.getValue();
+        if (this.score == 21) {
+            this.hasWon = true;
+        }
+
+        if (this.score > 21) {
+            this.isBusted = true;
+        }
     }
 
     public String getName() {
         return this.name;
     }
 
-    public ArrayList<Card> getCards() {
-        return this.cards;
+    public Card[] getPlayerCards() {
+        return playerCards;
     }
 }

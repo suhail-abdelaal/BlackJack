@@ -1,10 +1,13 @@
 package blackjack;
 
 public class Card {
+
+    // Attributes
     private final int suit;
     private final int rank;
     private final int value;
 
+    // Constructors
     public Card(int suit, int rank, int value) {
         this.suit = suit;
         this.rank = rank;
@@ -17,6 +20,7 @@ public class Card {
         this.value = card.value;
     }
 
+    // Setters & Getters
     public int getSuit() {
         return this.suit;
     }
