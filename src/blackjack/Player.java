@@ -6,7 +6,7 @@ public class Player {
     // Attributes
     private String name;
     private int score;
-    private Card[] playerCards= new Card[11];
+    private Card[] playerCards;
     private int index;
     private boolean hasWon;
     private boolean isBusted;
@@ -14,13 +14,10 @@ public class Player {
     // Constructors
     public Player(String name) {
         this.name = name;
+        playerCards = new Card[11];
         this.index = 0;
         this.hasWon = false;
         this.isBusted = false;
-        for(int i=0;i<11;i++)
-        {
-            playerCards[i]=new Card(0,0,0);
-        }
     }
 
     // Setters & Getters

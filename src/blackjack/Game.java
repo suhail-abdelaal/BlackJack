@@ -4,10 +4,9 @@ import java.util.Random;
 public class Game {
 
     // Attribute
-
     public static final String bj = "\ud835\udcd1\ud835\udcdb\ud835\udcd0\ud835\udcda \ud835\udcd9\ud835\udcd0\ud835\udcd2\ud835\udcda";
     private static int maxScore;
-   public Player[] player=new Player[4];
+    public Player[] player=new Player[4];
     public Card[] cards= new Card[52];
 
     // Constructors
@@ -72,11 +71,8 @@ public class Game {
         for(int i = 0; i < 4; ++i) {
             if (!this.player[i].isBusted() && this.player[i].getScore() >= maxScore) {
                 maxScore = this.player[i].getScore();
-//                winner.clear();
-//                winner.add(this.player[i]);
             }
         }
-
     }
 
     public void gameStatus(Player[] p) {
