@@ -1,5 +1,3 @@
-package blackjack;
-
 import java.util.Scanner;
 
 public class BlackJack {
@@ -7,7 +5,6 @@ public class BlackJack {
     static Game blackJack = new Game();
     static Player[] player;
     static Scanner in;
-
 
     public static void main(String[] args) {
         GUI gui = new GUI();
@@ -32,16 +29,14 @@ public class BlackJack {
                 player[0].getPlayerCards(),
                 player[1].getPlayerCards(),
                 player[2].getPlayerCards(),
-                player[3].getPlayerCards()
-        );
+                player[3].getPlayerCards());
     }
 
     public static void play(GUI gui) {
-        for(int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 3; ++i) {
             System.out.print('╔');
-
             int j;
-            for(j = 0; j < player[i].getName().length() + 12; ++j) {
+            for (j = 0; j < player[i].getName().length() + 12; ++j) {
                 System.out.print('═');
             }
 
@@ -50,7 +45,7 @@ public class BlackJack {
             System.out.println(' ' + player[i].getName().toUpperCase() + "'s turn..." + " ║");
             System.out.print('╚');
 
-            for(j = 0; j < player[i].getName().length() + 12; ++j) {
+            for (j = 0; j < player[i].getName().length() + 12; ++j) {
                 System.out.print('═');
             }
 
@@ -62,11 +57,10 @@ public class BlackJack {
         if (player[3].getScore() <= blackJack.getMaxScore())
             dealerDrawing(gui);
 
-
     }
 
     public static void setInput(int i, GUI gui) {
-        while(true) {
+        while (true) {
             System.out.println("****** Enter your choice ******");
             System.out.println("1) Hit \n2) Stand");
             if (in.hasNextInt()) {
@@ -80,13 +74,14 @@ public class BlackJack {
                     gui.updatePlayerHand(drawnCard, i);
 
                     if (player[i].isBusted()) {
-                        System.out.println("~" + player[i].getName().toUpperCase() + " is Busted with '" + player[i].getScore() + "' in hand");
+                        System.out.println("~" + player[i].getName().toUpperCase() + " is Busted with '"
+                                + player[i].getScore() + "' in hand");
                         System.out.println("---------------------------------------------------------------");
                         System.out.println();
                         return;
                     } else if (player[i].hasWon()) {
                         System.out.println("♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠");
-                        System.out.println(player[i].getName().toUpperCase() + " has a " + "\ud835\udcd1\ud835\udcdb\ud835\udcd0\ud835\udcda \ud835\udcd9\ud835\udcd0\ud835\udcd2\ud835\udcda");
+                        System.out.println(player[i].getName().toUpperCase() + " has a BlackJack.");
                         System.out.println("♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠");
                         System.out.println();
                         return;
@@ -99,15 +94,16 @@ public class BlackJack {
                     System.out.print('╭');
 
                     int j;
-                    for(j = 0; j < player[i].getName().length() + 18; ++j) {
+                    for (j = 0; j < player[i].getName().length() + 18; ++j) {
                         System.out.print('╴');
                     }
 
                     System.out.println('╮');
-                    System.out.println("| " + player[i].getName().toUpperCase() + " stands with: " + player[i].getScore() + " |");
+                    System.out.println(
+                            "| " + player[i].getName().toUpperCase() + " stands with: " + player[i].getScore() + " |");
                     System.out.print('╰');
 
-                    for(j = 0; j < player[i].getName().length() + 18; ++j) {
+                    for (j = 0; j < player[i].getName().length() + 18; ++j) {
                         System.out.print('╴');
                     }
 
@@ -127,19 +123,20 @@ public class BlackJack {
     public static void dealerDrawing(GUI gui) {
         System.out.println("**Dealer is drawing cards");
 
-        while (player[3].getScore() <= blackJack.getMaxScore()){
+        while (player[3].getScore() <= blackJack.getMaxScore()) {
 
             Card drawnCard = blackJack.drawRandomCard();
             System.out.println("#Drawn card's value is: " + drawnCard.getValue());
             player[3].addCard(drawnCard);
             gui.updateDealerHand(drawnCard, blackJack.getCards());
             if (player[3].isBusted()) {
-                System.out.println('~' + player[3].getName().toUpperCase() + " is Busted with '" + player[3].getScore() + "' in hand");
+                System.out.println('~' + player[3].getName().toUpperCase() + " is Busted with '" + player[3].getScore()
+                        + "' in hand");
                 System.out.println();
                 return;
             } else if (player[3].hasWon()) {
                 System.out.println("♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠");
-                System.out.println(player[3].getName().toUpperCase() + " has a " + "\ud835\udcd1\ud835\udcdb\ud835\udcd0\ud835\udcda \ud835\udcd9\ud835\udcd0\ud835\udcd2\ud835\udcda");
+                System.out.println(player[3].getName().toUpperCase() + " has a BlackJack.");
                 System.out.println("♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠♠");
                 System.out.println();
                 return;

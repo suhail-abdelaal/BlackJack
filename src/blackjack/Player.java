@@ -1,6 +1,3 @@
-package blackjack;
-
-
 public class Player {
 
     // Attributes

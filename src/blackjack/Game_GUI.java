@@ -1,10 +1,5 @@
-package blackjack;
 import java.util.ArrayList;
-import java.awt.event.*;
 import javax.swing.*;
-import java.awt.Font;
-import java.io.FileInputStream;
-import java.io.*;
 import java.util.Random;
 
 public class Game_GUI {

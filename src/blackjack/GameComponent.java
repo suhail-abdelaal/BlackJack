@@ -1,4 +1,3 @@
-package blackjack;
 import javax.swing.JComponent;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;

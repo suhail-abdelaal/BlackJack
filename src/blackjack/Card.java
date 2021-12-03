@@ -1,5 +1,3 @@
-package blackjack;
-
 public class Card {
 
     // Attributes
@@ -20,8 +18,8 @@ public class Card {
         this.value = card.value;
     }
 
-    // Setters & Getters
     public int getSuit() {
+        // Setters & Getters
         return this.suit;
     }
 

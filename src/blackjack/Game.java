@@ -1,4 +1,3 @@
-package blackjack;
 import java.util.Random;
 
 public class Game {
@@ -6,8 +5,8 @@ public class Game {
     // Attribute
     public static final String bj = "\ud835\udcd1\ud835\udcdb\ud835\udcd0\ud835\udcda \ud835\udcd9\ud835\udcd0\ud835\udcd2\ud835\udcda";
     private static int maxScore;
-    public Player[] player=new Player[4];
-    public Card[] cards= new Card[52];
+    public Player[] player = new Player[4];
+    public Card[] cards = new Card[52];
 
     // Constructors
     public Game() {
@@ -20,7 +19,7 @@ public class Game {
         int suitCounter = 0;
         int i = 0;
 
-        while(true) {
+        while (true) {
             if (rankCounter > 12) {
                 rankCounter = 0;
                 ++suitCounter;
@@ -36,7 +35,7 @@ public class Game {
     }
 
     public Card drawRandomCard() {
-        Random rand = new Random( );
+        Random rand = new Random();
 
         while (true) {
             int randChoice = rand.nextInt(52);
@@ -68,10 +67,9 @@ public class Game {
     }
 
     public void updateMaxScore() {
-        for(int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) {
             if (!this.player[i].isBusted() && this.player[i].getScore() >= maxScore)
                 maxScore = this.player[i].getScore();
-
         }
     }
 
@@ -79,10 +77,10 @@ public class Game {
         this.updateMaxScore();
         int c = 0;
         Player winner = new Player("");
-        for(int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) {
             if (p[i].getScore() >= maxScore && !p[i].isBusted()) {
                 c++;
-                winner=p[i];
+                winner = p[i];
             }
         }
 
@@ -91,7 +89,7 @@ public class Game {
             System.out.println("It's a Push.");
         } else {
             if (maxScore == 21) {
-                System.out.println(winner.getName().toUpperCase() + " won with a " + bj + '.');
+                System.out.println(winner.getName().toUpperCase() + " won with a BlackJack.");
             } else {
                 System.out.println(winner.getName().toUpperCase() + " won with '" + maxScore + "' in hand.");
             }
