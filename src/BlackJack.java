@@ -28,15 +28,12 @@ public class BlackJack {
         String p4 = in.nextLine();
         blackJack.setPlayersInfo(p1, p2, p3, p4);
         gui.runGUI(
-                blackJack.getCards(), player[0].getPlayerCards(),
+                blackJack.getCards(),
+                player[0].getPlayerCards(),
                 player[1].getPlayerCards(),
                 player[2].getPlayerCards(),
                 player[3].getPlayerCards()
         );
-        System.out.println(player[0].getScore());
-        System.out.println(player[1].getScore());
-        System.out.println(player[2].getScore());
-        System.out.println(player[3].getScore());
     }
 
     public static void play(GUI gui) {
