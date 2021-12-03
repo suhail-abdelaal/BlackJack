@@ -15,22 +15,12 @@ public class Game {
 
     // Functions
     public void generateCards() {
-        int rankCounter = 0;
-        int suitCounter = 0;
-        int i = 0;
-
-        while (true) {
-            if (rankCounter > 12) {
-                rankCounter = 0;
-                ++suitCounter;
-                if (suitCounter > 3)
-                    break;
+        int index = 0;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 13; j++) {
+                int value = j < 10 ? j + 1 : 10;
+                cards[index++] = new Card(i, j, value);
             }
-
-            int value = rankCounter < 10 ? rankCounter + 1 : 10;
-            cards[i] = new Card(suitCounter, rankCounter, value);
-            ++rankCounter;
-            ++i;
         }
     }
 
