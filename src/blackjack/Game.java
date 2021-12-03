@@ -5,12 +5,14 @@ public class Game {
     // Attribute
     public static final String bj = "\ud835\udcd1\ud835\udcdb\ud835\udcd0\ud835\udcda \ud835\udcd9\ud835\udcd0\ud835\udcd2\ud835\udcda";
     private static int maxScore;
-    public Player[] player = new Player[4];
-    public Card[] cards = new Card[52];
+    public Player[] player;
+    public Card[] cards;
 
     // Constructors
     public Game() {
         maxScore = 0;
+        player = new Player[4];
+        cards = new Card[52];
     }
 
     // Functions
@@ -18,7 +20,7 @@ public class Game {
         int index = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
-                int value = j < 10 ? j + 1 : 10;
+                int value = (j < 10) ? j + 1 : 10;
                 cards[index++] = new Card(i, j, value);
             }
         }
