@@ -31,6 +31,7 @@ public class Game {
 
         while (true) {
             int randChoice = rand.nextInt(52);
+
             if (cards[randChoice] == null)
                 continue;
 
@@ -68,11 +69,11 @@ public class Game {
     public void gameStatus(Player[] p) {
         this.updateMaxScore();
         int c = 0;
-        Player winner = new Player("");
+        String winnerName = null;
         for (int i = 0; i < 4; ++i) {
             if (p[i].getScore() >= maxScore && !p[i].isBusted()) {
                 c++;
-                winner = p[i];
+                winnerName = p[i].getName();
             }
         }
 
@@ -81,9 +82,9 @@ public class Game {
             System.out.println("It's a Push.");
         } else {
             if (maxScore == 21) {
-                System.out.println(winner.getName().toUpperCase() + " won with a BlackJack.");
+                System.out.println(winnerName.toUpperCase() + " won with a BlackJack.");
             } else {
-                System.out.println(winner.getName().toUpperCase() + " won with '" + maxScore + "' in hand.");
+                System.out.println(winnerName.toUpperCase() + " won with '" + maxScore + "' in hand.");
             }
         }
     }
